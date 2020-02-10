@@ -71,84 +71,105 @@ def list_prices_places():
     """
     Get a list of places that match a query string.
     """
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=Stockholm",
-                          headers={
-                            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"})
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=Stockholm",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
 
 
 def get_cheapest_prices():
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2019-01-01?inboundpartialdate=2019-09-01",
-                           headers={
-                             "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                             "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"})
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2019-01-01?inboundpartialdate=2019-09-01",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
 
 
 def get_cheapest_flight_routes():
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/SFO-sky/ORD-sky/2019-01-01?inboundpartialdate=2019-09-01",
-                          headers={
-                            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"})
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/SFO-sky/ORD-sky/2019-01-01?inboundpartialdate=2019-09-01",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
 
 
 def get_cheapest_flight_for_route():
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2019-01-01?inboundpartialdate=2019-09-01",
-                           headers={
-                           "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"})
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2019-01-01?inboundpartialdate=2019-09-01",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
 
 
 def get_cheapest_dates_inbound():
     """
     Retrieve the cheapest dates for a given route from our cache. Must include inboundpartialdate.
     """
-    response = unirest.get(f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
-    headers={
+    response = unirest.get(
+        f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
+        headers={
             "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"})
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
 
 
 def get_cheapest_quotes_inbound():
     """
     Retrieve the cheapest quotes from our cache prices. Must include inboundpartialdate.
     """
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
-  headers={
-    "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"
-  }
-)
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
+
 
 def get_cheapest_routes_inbound():
     """
     Retrieve the cheapest routes from our cache prices. Similar to the Browse Quotes API but with the routes built for you from the individual quotes. Must include inboundpartialdate
     """
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
-  headers={
-    "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"
-  }
-)
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
+
 
 def get_market_lists():
     """
     Retrieve the market countries that we support. Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is, therefore, necessary to specify the market country in every query.
     """
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/reference/v1.0/countries/en-US",
-  headers={
-    "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"
-  }
-)
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/reference/v1.0/countries/en-US",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
 
 
 def get_supported_currencies():
-    response = unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/reference/v1.0/currencies",
-  headers={
-    "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-    "X-RapidAPI-Key": "SIGN-UP-FOR-KEY"
-  }
-)
+    response = unirest.get(
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/reference/v1.0/currencies",
+        headers={
+            "X-RapidAPI-Host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+        },
+    )
 
 
 ########################### Chatter bot ###############################
@@ -213,9 +234,6 @@ def test(user_input="I would like to book a flight to Iceland."):
 if __name__ == "__main__":
     do_the_training_thing()
     test()
-
-
-
 
 
 ############ Useful ###################
